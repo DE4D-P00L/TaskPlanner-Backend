@@ -9,8 +9,12 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const options = {
+  origin: ["http://localhost:5173", "https://taskplanner-u50h.onrender.com"],
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(options));
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1/user/", userRoutes);
