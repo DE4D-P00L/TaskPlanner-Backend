@@ -32,6 +32,9 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", success: false });
   }
 };
 
@@ -69,5 +72,8 @@ export const signup = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", success: false });
   }
 };
